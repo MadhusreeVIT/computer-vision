@@ -1,0 +1,120 @@
+#importing libraries
+import cv2
+import numpy as np
+from moviepy.editor import*
+# Capturing the video for camera 1
+clip1=VideoFileClip("rtsp://admin:1234567a@192.168.1.64/Stear
+ming/Channels/1//")
+Cap=cv2.VideoCapture(“rtsp://admin:1234567a@192.168.1.64/Stearming/Channels
+/1//")
+output = cv2.VideoWriter("output.avi", cv2.VideoWriter_fourcc(*'MPEG'), 3, (1440, 
+2560))
+# Check if camera opened successfully
+if (cap.isOpened()== False):
+ print("Error opening video file")
+# Read until video is completed
+while(True):
+ ret, frame = cap.read()
+ if(ret):
+ 
+ # adding rectangle frame on video
+ cv2.rectangle(frame, (350, 300), (1100, 250), (255, 0, 0), 2)
+ 
+ # writing the new frame in output
+ output.write(frame)
+ cv2.imshow("output", frame)
+ if cv2.waitKey(25) & 0xFF == ord('s'):
+ break
+ else:
+ break
+# When everything done, release
+# The video capture object
+cap.release()
+# Closes all the frames
+cv2.destroyAllWindows()
+
+# Capturing the output from Camera 2
+clip2 = VideoFileClip("rtsp://admin:12345677a@192.168.1.64/Streaming/Channels/1//")
+cap=cv2.VideoCapture('rtsp://admin:12345677a@192.168.1.64/Streaming/Channels/1//')
+output = cv2.VideoWriter("output.avi", cv2.VideoWriter_fourcc(*'MPEG'), 3, (1440, 2560))
+# Check if camera opened successfully
+ 
+ # adding rectangle frame on video
+ cv2.rectangle(frame, (350, 300), (1100, 250), (255, 0, 0), 2)
+ 
+ # writing the new frame in output
+ output.write(frame)
+ cv2.imshow("output", frame)
+ if cv2.waitKey(25) & 0xFF == ord('s'):
+ break
+ else:
+ break
+# When everything done, release
+# the video capture object
+cap.release()
+# Closes all the frames
+cv2.destroyAllWindows()
+# Capturing the output for camera 3
+clip3 = VideoFileClip("rtsp://admin:1234567a@192.168.1.67/Stearming/Channels/1//")
+cap = cv2.VideoCapture(' rtsp://admin:1234567a@192.168.1.67/Stearming/Channels/1//')
+output = cv2.VideoWriter("output.avi", cv2.VideoWriter_fourcc(*'MPEG'), 3, (1440, 2560))
+# Check if camera opened successfully
+if (cap.isOpened()== False):
+ print("Error opening video file")
+# Read until video is completed
+while(True):
+ ret, frame = cap.read()
+ if(ret):
+ 
+ # adding rectangle frame on video
+ cv2.rectangle(frame, (350, 300), (1100, 250), (255, 0, 0), 2)
+ 
+ # writing the new frame in output
+ output.write(frame)
+ cv2.imshow("output", frame)
+ if cv2.waitKey(25) & 0xFF == ord('s'):
+ break
+ else:
+ break
+# When everything done, release
+# the video capture object
+cap.release()
+# Closes all the frames
+cv2.destroyAllWindows()
+#Capturing the video from Camera 4
+clip4 = 
+VideoFileClip("rtsp://admin:1234567a@192.168.1.68/Stearming/Channels/1//").subclip(0, 
+15)
+cap = cv2.VideoCapture(' rtsp://admin:1234567a@192.168.1.68/Stearming/Channels/1//')
+output = cv2.VideoWriter("output.avi", cv2.VideoWriter_fourcc(*'MPEG'), 3, (1440, 2560))
+# Check if camera opened successfully
+if (cap.isOpened()== False):
+ print("Error opening video file")
+# Read until video is completed
+while(True):
+ ret, frame = cap.read()
+ if(ret):
+# adding rectangle frame on video
+ cv2.rectangle(frame, (350, 300), (1100, 250), (255, 0, 0), 2)
+# writing the new frame in output
+ output.write(frame)
+ cv2.imshow("output", frame)
+ if cv2.waitKey(25) & 0xFF == ord('s'):
+ break
+ else:
+ break
+# When everything done, release
+# the video capture object
+cap.release()
+# Closes all the frames
+cv2.destroyAllWindows()
+• In this way the four videos from 4 cameras are captured and the output is 
+shown on computer screen.
+# list of clips
+clips = [[clip1, clip2],
+[clip3, clip4]]
+# Check if camera opened successfully
+# Read until video is completed
+# stacking clips
+final = clips_array(clips)
+final.ipython_display(width = 600)
